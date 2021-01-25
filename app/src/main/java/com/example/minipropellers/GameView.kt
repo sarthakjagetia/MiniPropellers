@@ -1,7 +1,11 @@
 package com.example.minipropellers
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 
@@ -40,12 +44,17 @@ class GameView(context: Context) : SurfaceView(context), SurfaceHolder.Callback 
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)
         if (canvas != null) {
-            canvas.drawColor(Color.WHITE)
+            canvas.drawRGB(0, 100, 205);
 //            val dest = Rect(0, 0, width, height)
 //            backgroundPaint.isFilterBitmap = true
 //            canvas.drawBitmap(backgroundBitmap, null, dest, backgroundPaint)
             characterSprite.draw(canvas);
         }
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        characterSprite.y = characterSprite.y - (characterSprite.yVelocity * 50)
+        return super.onTouchEvent(event)
     }
 
     fun update() {

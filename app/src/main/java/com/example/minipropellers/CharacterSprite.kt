@@ -6,9 +6,9 @@ import android.graphics.Canvas
 
 class CharacterSprite(private val bitmap: Bitmap) {
     private var x: Float = 100f
-    private var y: Float = 100f
+    var y: Float = 100f
     private var xVelocity = 10
-    private var yVelocity = 5
+    var yVelocity = 5
     private val screenWidth: Int = Resources.getSystem().displayMetrics.widthPixels
     private val screenHeight: Int = Resources.getSystem().displayMetrics.heightPixels
 
